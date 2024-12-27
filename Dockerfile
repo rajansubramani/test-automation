@@ -23,4 +23,4 @@ COPY --from=build /app/target/mybook.war /app/mybook.war
 EXPOSE 8080
 
 # Command to run the application
-CMD ["java", "-jar", "/app/mybook.war"]
+CMD ["java", "-jar", "/app/mybook.jar"]
