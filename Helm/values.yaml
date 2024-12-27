@@ -2,7 +2,7 @@
 #namespace: devops
 replicaCount: 1
 image:
-  repository: rajansubramani/test-automation-v1
+  repository: rajansubramani/test-automation
   tag: v1
 containerPort: 80
 # service.yaml
