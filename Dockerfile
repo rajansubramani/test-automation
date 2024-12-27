@@ -1,26 +1,26 @@
-# Step 1: Use a base image with OpenJDK and Maven pre-installed
-FROM maven:3.8.4-openjdk-17-slim as build
+# First stage: Build the project using Maven
+FROM maven:3.8.1-openjdk-17-slim as build
 
-# Step 2: Set the working directory in the container
+# Set the working directory in the container
 WORKDIR /app
 
-# Step 3: Copy your Maven project files into the container
-COPY . /app
+# Copy the entire project to the container
+COPY . .
 
-# Step 4: Run Maven to build the project (equivalent to 'mvn clean install')
-RUN mvn clean install
+# Run Maven to package the app (this creates the WAR file in target/ directory)
+RUN mvn clean package
 
-# Step 5: Create the final image with just the JRE (for runtime)
+# Second stage: Use a lightweight base image for the final app
 FROM openjdk:17-slim
 
-# Step 6: Set the working directory in the container
+# Set the working directory in the container
 WORKDIR /app
 
-# Step 7: Copy the WAR file from the build container to the runtime container
+# Copy the WAR file from the build stage into the final image
 COPY --from=build /app/target/mybook.war /app/mybook.war
 
-# Step 8: Expose the port that your Java application will run on
+# Expose the port the app will run on
 EXPOSE 8080
 
-# Step 9: Set the command to run the WAR file using the OpenJDK runtime
+# Command to run the application
 CMD ["java", "-jar", "/app/mybook.war"]
