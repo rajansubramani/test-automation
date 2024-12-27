@@ -11,12 +11,12 @@
     <packaging>jar</packaging>
 
     <!-- Parent of the project, typically for setting up dependency management -->
-    <parent>
+<!--     <parent>
         <groupId>org.apache.maven</groupId>
         <artifactId>maven-archetype-quickstart</artifactId>
         <version>1.0</version>
         <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+<!--     </parent> --> -->
 
     <!-- Properties -->
     <properties>
