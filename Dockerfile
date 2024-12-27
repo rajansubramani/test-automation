@@ -17,7 +17,7 @@ FROM openjdk:17-slim
 WORKDIR /app
 
 # Copy the WAR file from the build stage into the final image
-COPY --from=build /app/target/mybook.war /app/mybook.war
+COPY --from=build /app/target/mybook.jar /app/mybook.jar
 
 # Expose the port the app will run on
 EXPOSE 8080
