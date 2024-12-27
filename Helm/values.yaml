@@ -1,0 +1,14 @@
+#deployment.yaml
+#namespace: devops
+replicaCount: 1
+image:
+  repository: mohammed07/rock
+  tag: v1
+containerPort: 80
+# service.yaml
+service:
+  port: 80
+  targetPort: 80
+  containerPort: 80
+  nodePort: 30008
+  type: NodePort
