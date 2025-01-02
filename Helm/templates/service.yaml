@@ -7,7 +7,7 @@ spec:
   selector:
     app: devops
   ports:
-    - name: http
+    - name: https
       protocol: TCP
       port: {{ .Values.service.port }}  #80
       targetPort: {{ .Values.service.targetPort }} #80
